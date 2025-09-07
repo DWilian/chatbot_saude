@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow p-4 mt-3">
+    <h1>Marcar Consulta - {{ paciente.nome_completo }}</h1>
+    <form method="post">
+        {% for ubs in ubs_proximas %}
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="ubs" value="{{ ubs.nome }}" required>
+                <label class="form-check-label">{{ ubs.nome }} - {{ ubs.endereco }}</label>
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary mt-3">Confirmar Consulta</button>
+    </form>
+</div>
+{% endblock %}
