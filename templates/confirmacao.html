@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Consulta Confirmada{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Consulta Confirmada!</h2>
+    <div class="card">
+        <p><strong>Paciente:</strong> {{ paciente_nome }}</p>
+        <p><strong>UBS:</strong> {{ ubs_nome }}</p>
+    </div>
+    <div style="display:flex; justify-content: space-between; margin-top: 20px;">
+        <a href="{{ url_for('login') }}"><button>Sair</button></a>
+        <a href="{{ url_for('buscar_paciente') }}"><button>Novo Paciente</button></a>
+    </div>
+</div>
+{% endblock %}

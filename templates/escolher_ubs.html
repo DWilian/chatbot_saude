@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Escolher UBS{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Escolha a UBS para {{ paciente['nome_completo'] }}</h2>
+    <form method="POST">
+        <ul>
+        {% for ubs in ubs_proximas %}
+            <li>
+                <input type="radio" name="ubs" value="{{ ubs['NOME'] }}" required>
+                <strong>{{ ubs['NOME'] }}</strong><br>
+                <small>{{ ubs['ENDERECO'] }}</small>
+            </li>
+        {% endfor %}
+        </ul>
+        <button type="submit">Confirmar UBS</button>
+    </form>
+</div>
+{% endblock %}

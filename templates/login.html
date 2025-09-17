@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Login do Médico</h2>
+
+    <!-- Mensagem de erro -->
+    {% if erro %}
+        <div class="erro">{{ erro }}</div>
+    {% endif %}
+
+    <form method="POST">
+        <input type="text" name="usuario" placeholder="Usuário" required>
+        <input type="password" name="senha" placeholder="Senha" required>
+        <button type="submit">Entrar</button>
+    </form>
+</div>
+{% endblock %}

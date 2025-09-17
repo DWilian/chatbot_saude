@@ -1,22 +1,13 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
+{% block title %}Buscar Paciente{% endblock %}
+
 {% block content %}
-<div class="card shadow p-4 mt-3">
-    <h1>Paciente: {{ paciente.nome_completo }}</h1>
-
-    <h2 class="mt-4">Histórico Médico</h2>
-    <ul class="list-group mb-4">
-        <li class="list-group-item">Alergias: {{ historico.alergias if historico else 'N/A' }}</li>
-        <li class="list-group-item">Doenças Crônicas: {{ historico.doencas_cronicas if historico else 'N/A' }}</li>
-        <li class="list-group-item">Medicamentos: {{ historico.medicamentos_atuais if historico else 'N/A' }}</li>
-    </ul>
-
-    <h2 class="mt-4">Sintomas Reportados</h2>
-    <ul class="list-group mb-4">
-    {% for triagem in triagens %}
-        <li class="list-group-item">{{ triagem.resumo_sintomas }} ({{ triagem.inicio }})</li>
-    {% endfor %}
-    </ul>
-
-    <a href="{{ url_for('pagina3', id_paciente=paciente.id_paciente) }}" class="btn btn-primary">Marcar Consulta / Atestar</a>
+<div class="container">
+    <h2>Buscar Paciente</h2>
+    <form method="POST">
+        <input type="number" name="id_paciente" placeholder="ID do Paciente" required>
+        <button type="submit">Procurar</button>
+    </form>
 </div>
 {% endblock %}
